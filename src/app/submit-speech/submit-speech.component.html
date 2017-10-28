@@ -1,3 +1,7 @@
+<ngb-alert [dismissible]="true" type="success" [hidden]="!successSubmit">
+    <strong>Success!!</strong> We have saved your Speech
+  </ngb-alert>
+
 <div class="row">
 
   <div class="col-lg-12 submit-speech">
@@ -6,7 +10,7 @@
         <label for="comment">Speech</label>
 
         <input type="text" class="form-control"  placeholder="Name" name="name" [(ngModel)]="name">
-        <textarea class="form-control" rows="5" id="comment" [(ngModel)]="text" name="text"></textarea>
+        <textarea class="form-control" rows="5" id="comment" [(ngModel)]="text" name="text" style="margin-top: 15px;"></textarea>
       </div>
       <div class="row">
         <div class="input-group">
@@ -26,6 +30,4 @@
 
     </form>
   </div>
-
-  <pre>{{newSpeech.value|json}}</pre>
 </div>

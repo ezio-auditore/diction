@@ -31,13 +31,10 @@ deleteSelectedSpeech(){
 editSelectedSpeech(){
   this.isEditing=true;
 }
-saveSelectedSpeech(speech){
-  console.log(speech);
+saveSelectedSpeech(){
   let updatedSpeech = this.selectedSpeech;
-  updatedSpeech.text=speech.value;
   this.speechService.updateSpeech(this.selectedSpeech,updatedSpeech);
   this.isEditing=false;
-  speech.value=this.selectedSpeech.text;
 
 }
 }

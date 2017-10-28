@@ -8,11 +8,14 @@ import {SpeechService} from '../services/speech.service';
   styleUrls: ['./submit-speech.component.css']
 })
 export class SubmitSpeechComponent implements OnInit {
-
+successSubmit :boolean=false;
   constructor(private speechService :SpeechService) { }
   ngOnInit() {
   }
 submitForm(newSpeech){
   this.speechService.addSpeech(newSpeech);
+  newSpeech.reset();
+this.successSubmit=true;
+setTimeout(() => this.successSubmit = false, 5000);
 }
 }
