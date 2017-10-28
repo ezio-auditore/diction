@@ -6,4 +6,10 @@ body {
     body {
         padding-top: 56px;
     }
+
+}
+@media screen and (max-width: 495px) {
+    .button-text {
+        display: none;
+    }
 }

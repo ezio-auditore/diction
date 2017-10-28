@@ -3,26 +3,30 @@
   <div class="col-lg-5">
 
     <h1 class="my-4">Speeches</h1>
-    <div class="list-group">
-      <a href="#" class="list-group-item">Speech 1</a>
-      <a href="#" class="list-group-item">Speech 2</a>
-      <a href="#" class="list-group-item">Speech 3</a>
+    <div class="list-group" *ngIf="speeches.length!=0; else noSpeeches">
+      <a href="#" class="list-group-item" *ngFor="let speech of speeches" (click)="selectSpeech(speech)">{{speech.name}}</a>
     </div>
-
+<ng-template #noSpeeches>
+  <span>No Speeches stored</span>
+</ng-template>
   </div>
 
   <div class="col-lg-7">
-    <form action="">
+    <form action="" *ngIf="speeches.length !=0; else noSpeechSelected">
       <div class="form-group view-speech">
-        <label for="comment">Speech</label>
-        <textarea class="form-control" rows="5" id="comment" disabled="disabled"></textarea>
+        <label for="comment">Speech : {{selectedSpeech.name}}</label>
+        <textarea class="form-control" rows="5"  [attr.disabled]="isEditing?null:'disabled'"  #speech >{{selectedSpeech.text}}</textarea>
       </div>
       <div class="btn-group submit-buttons" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-success">Share</button>
+        <button type="button" class="btn btn-danger" (click)="deleteSelectedSpeech()"><i class="fa fa-trash " aria-hidden="true" ></i><span class="button-text">Delete</span></button>
+        <button type="button" class="btn btn-primary" (click)="editSelectedSpeech()" [hidden]="isEditing"><i class="fa fa-pencil-square-o " aria-hidden="true"></i><span class="button-text">Edit</span></button>
+        <button type="button" class="btn btn-primary" (click)="saveSelectedSpeech(speech)"[hidden]="!isEditing"><i class="fa fa-pencil-square-o " aria-hidden="true"></i><span class="button-text">Save</span></button>
+        <button type="button" class="btn btn-success"><i class="fa fa-share-alt-square " aria-hidden="true"> </i> <span class="button-text">Share</span></button>
 
       </div>
     </form>
+    <ng-template>
+      <span>No Speeches are selected</span>
+    </ng-template>
   </div>
 </div>
