@@ -1,0 +1,33 @@
+<div class="container">
+
+
+
+
+  <!-- <app-search-speech></app-search-speech> -->
+
+  <ngb-tabset [justify]="currentJustify">
+    <ngb-tab title="View Speeches">
+      <ng-template ngbTabContent>
+        <app-view-speech></app-view-speech>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Submit a new Speech">
+      <ng-template ngbTabContent>
+        <app-submit-speech></app-submit-speech>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Search Speeches">
+      <ng-template ngbTabContent>
+        <app-search-speech></app-search-speech>
+      </ng-template>
+    </ngb-tab>
+    </ngb-tabset>
+    <!-- /.col-lg-3 -->
+
+
+    <!-- /.col-lg-9 -->
+
+
+    <!-- /.row -->
+
+</div>
