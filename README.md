@@ -13,3 +13,5 @@ submit-speech
 search-speech
 
 Communication between tem is carried out by the LocalStorageService provided by Ng2Webstorage.
+
+It is deployed in firebase web hosting at this url :https://diction-123.firebaseapp.com/
